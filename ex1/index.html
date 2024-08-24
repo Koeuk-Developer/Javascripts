@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2><strong>Create Card</strong></h2>
+        <form id="cardForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="input_name" id="name" required>
+            </div>
+        </form>
+
+        <button type="submit" name="btnSubmit" id="btnSubmit" class="btn btn-primary">Create Card</button>
+        <div id="cardContainer">
+            <div class="card">
+                <h2>Hello Card</h2>
+                <p>This is a sample card.</p>
+            </div>
+        </div>
+</body>
+
+<script>
+    let inputName = document.getElementById("name");
+    let cardContainer = document.getElementById("cardContainer");
+    let btnSubmit = document.getElementById("btnSubmit");
+
+    btnSubmit.addEventListener("click", function(e) {
+        e.preventDefault();
+        let name = inputName.value;
+
+        let newCard = document.createElement("div");
+        newCard.classList.add("card");
+        let h2 = document.createElement("h2");
+        let p = document.createElement("p");
+      
+        p.textContent = "Hello";
+        h2.textContent = name;
+
+        newCard.appendChild(h2);
+        newCard.appendChild(p);
+        cardContainer.appendChild(newCard);
+
+    })
+</script>
+
+</html>
+
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto ;
+        /* background-color: #f5f5f5; */
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background-color: #616161;
+        border-radius: 5px;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+    #cardContainer {
+        margin: 10px;
+        width: auto;
+        display: flex;
+        gap: 5px;
+        height: auto;
+        flex-wrap: wrap;
+        /* background-color: #bdacac; */
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0px 5px 10px rgba(50, 27, 27, 0.2);
+    }
+    .card {
+        width: 250px;
+        height: 150px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        text-align: center;
+        color: #060606;
+        font-size: 24px;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+</style>
+
+<!-- <script>
+let form = document.querySelector('#name');
+let cardContainer = document.querySelector('#cardContainer');
+let btnSubmit = document.querySelector('#btnSubmit');
+
+btnSubmit.addEventListener('click', function (event) {
+    event.preventDefault();
+    let name = form.value;
+    
+    // Create a new card element
+    let newCard = document.createElement('div');
+    let h2 = document.createElement('h2');
+    
+    // Set the text content of h2 to the input value
+    h2.textContent = name;
+
+    newCard.classList.add('card');
+    newCard.appendChild(h2);
+
+    // Append the new card to the container
+    cardContainer.appendChild(newCard);
+    
+    // Clear the input field
+    form.value = '';
+});
+
+</script> -->
